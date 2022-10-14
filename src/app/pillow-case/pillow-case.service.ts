@@ -16,12 +16,13 @@ export class PillowCaseService {
 
   addNewCandy(name: string) {
     this.myCandies.push(new Candy(name));
-    this.addCandy.next(this.myCandies.slice())
+    this.addCandy.next(this.myCandies)
 
     console.log('this.myCandies:', this.myCandies);
   }
 
   clearCandy() {
     this.myCandies = [];
+    this.addCandy.next(this.myCandies)
   }
 }

@@ -13,6 +13,7 @@ export class PillowCaseComponent implements OnInit, OnDestroy {
 
   localCandies: Candy[] = [];
   private removeCandy: Subscription
+
   constructor(private pillowCaseService: PillowCaseService) {}
 
   ngOnInit(): void {
@@ -23,6 +24,8 @@ export class PillowCaseComponent implements OnInit, OnDestroy {
       this.localCandies = updatedCandies
     })
   }
+  //ngOnDestroy unsubscribes Observables and detaches event handlers
+  // to avoid memory leaks
    ngOnDestroy(){
     this.removeCandy.unsubscribe();
    }
